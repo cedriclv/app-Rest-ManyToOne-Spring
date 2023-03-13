@@ -1,7 +1,7 @@
 package com.example.workShopJPA.controllers;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,9 +27,17 @@ public class CarController {
     @Autowired
     OwnerRepository ownerRepository;
 
+    public record CarDTO(String carName, String model, String ownerName) {
+
+    }
+
     @GetMapping("")
-    public List<Car> getAllCars() {
-        return carRepository.findAll();
+    public List<CarDTO> getAllCars() {
+
+        return carRepository.findAll().stream().map(
+                (Car car) -> {
+                    return new CarDTO(car.getBrand(), car.getModel(), car.getOwner().getName());
+                }).toList();
     }
 
     @PostMapping("")

@@ -14,8 +14,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "cars")
-// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-// property = "id")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

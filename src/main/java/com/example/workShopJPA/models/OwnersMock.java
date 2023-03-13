@@ -12,7 +12,7 @@ import com.example.workShopJPA.entities.Owner;
 public class OwnersMock {
 
     private static OwnersMock Instance;
-    private List<Owner> carsFirstFeed = new ArrayList<Owner>();
+    private List<Owner> ownerFirstFeed = new ArrayList<Owner>();
 
     public static OwnersMock getInstance() {
         if (Instance == null) {
@@ -23,18 +23,18 @@ public class OwnersMock {
 
     private OwnersMock() {
         Collections.addAll(
-                this.carsFirstFeed,
+                this.ownerFirstFeed,
                 new Owner("Cedric"),
                 new Owner("Yoann"),
                 new Owner("Cyril"));
     }
 
     public List<Owner> getOwnersFirstFeed() {
-        return carsFirstFeed;
+        return ownerFirstFeed;
     }
 
-    public void setOwnersFirstFeed(List<Owner> carsFirstFeed) {
-        this.carsFirstFeed = carsFirstFeed;
+    public void setOwnersFirstFeed(List<Owner> ownerFirstFeed) {
+        this.ownerFirstFeed = ownerFirstFeed;
     }
 
 }
